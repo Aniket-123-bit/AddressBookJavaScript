@@ -1,29 +1,30 @@
 
+/**
+ * Ability to ensure Valid Contacts are added.
+     - First Name and Last Name should start with Capital and Minimum 3 Characters
+     - Address, City and State should also have minimum 4 characters
+     - Zip, Phone and Email should be valid as done in the Pattern Exercise
+     - Throw Error if the RegEx test fails
+ * 
+ * @author: ANIKET RAIKWAR
+ * @since: 01.08.2021
+ */
+
 //importing another class file to the class file
 const PersonInfo = require("./PersonInfoData.js"); 
 const prompt = require('prompt-sync')();
 
-//Ability to add values to the PersonInfoData
-var personInfo = new PersonInfo("sneha", "Raikwar", "bhopal", "bhopal", "MP", "471201", "984877678", "sn@abc.in");
-console.log(personInfo.toString());
-
-personInfo.firstName = "Aniket";
-personInfo.lastName = "Raikwar";
-personInfo.address = "Bhopal";
-personInfo.city = "Bhopal";
-personInfo.state = "M.P";
-personInfo.zip = "471201";
-personInfo.phoneNumber = "789548709";
-personInfo.email = "an@abc.in";
-console.log(personInfo.toString());
-
-//Ability to add user-defined values to the PersonInfoData
-personInfo.firstName = prompt("Enter First Name : "); 
-personInfo.lastName = prompt("Enter Last Name : "); 
-personInfo.address = prompt("Enter Address : "); 
-personInfo.city = prompt("Enter City : "); 
-personInfo.state = prompt("Enter State : "); 
-personInfo.zip = prompt("Enter Zip : "); 
-personInfo.phoneNumber = prompt("Enter Phone Number : "); 
-personInfo.email = prompt("Enter Email : "); 
-console.log(personInfo.toString());
+try{
+    let personInfo = new PersonInfo();
+    personInfo.fName = prompt("Enter First Name : "); 
+    personInfo.lName = prompt("Enter Last Name : "); 
+    personInfo.addressName = prompt("Enter Address : "); 
+    personInfo.cityName = prompt("Enter City : "); 
+    personInfo.stateName = prompt("Enter State : "); 
+    personInfo.zipNumber = prompt("Enter Zip : "); 
+    personInfo.phoneNumberInput = prompt("Enter Phone Number : "); 
+    personInfo.emailInput = prompt("Enter Email : "); 
+    console.log(personInfo.toString());
+} catch ( e ) {
+    console.error(e);
+}
